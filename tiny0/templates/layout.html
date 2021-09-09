@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1">
+		<meta name="description" content="vanaram is a free custom URL shortener with click tracking.">
+		<link rel="canonical" href="https://vanaram.cc/">
+
+		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+		<link href="{{ url_for('static', filename='font.css') }}" rel="stylesheet">
+		<link href="/static/style.css" rel="stylesheet" type="text/css"/>
+
+		<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+		<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+		<title>VANARAM - Custom URL Shortener</title>
+	</head>
+	<body>
+		<nav>
+			<ul>
+				<li class="logo">VANARAM - URL Shortener</li>
+				<li class="items"><a href="{{ url_for('index') }}">Shortener</a></li>
+				<li class="items"><a href="{{ url_for('tracker') }}">Tracker</a></li>
+				<li class="items"><a href="{{ url_for('lookup') }}">Lookup</a></li>
+				<!-- <li class="items"><a href="{{ url_for('report') }}">Report</a></li> -->
+				<li class="items"><a href="{{ url_for('donate') }}">Donate</a></li>
+				<li class="btn"><a href="#"><i class="fas fa-bars"></i></a></li>
+			</ul>
+		</nav>
+
+		{% block body %}{% endblock %}
+
+		<script>
+			$(document).ready(function(){
+				$('.btn').click(function(){
+					$('.items').toggleClass("show");
+					$('ul li').toggleClass("hide");
+				});
+			});
+			{% block script %}
+			{% endblock %}
+		</script>
+	</body>
+
+	<footer>
+		&#169; 2021 Vanaram TG @vanaram007
+	</footer>
+</html>
